@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+
+<main  >
+
+
+<section class="vh-80 p-5 text-center ">
+<p> shorturl a free tool to shorten a URL or reduce a link.</p>
+  {% if is_granted('IS_ANONYMOUS')%}
+            <p > 
+log in to manage your links </p>
+            <a class="btn btn-lg btn-outline-secondary" href="{{path("app_register") }}">Sign up</a></p>
+            {%endif%}
+            <div class="d-flex justify-content-center">
+    <div class="card  w-md-75 w-lg-50  p-2" id="shortenCard">
+        <form id="shortForm" >
+            <div class="col">
+                <div class="input-group">
+                    <input required name="url" id="url"type="text" autocomplete="off" class="form-control form-control-lg" placeholder="shorten your link" >
+                <button id="btnShortenUrl" type="submit " class="btn btn-lg bgRebeccaPurple text-white"> shorten </dbutton>
+                </div>
+            </div>
+        </form>
+    </div>
+          </div>
+</section>
+
+
+</main>
+{% endblock %}
+{% block javascripts %}
+            {{ encore_entry_script_tags('home') }}
+           
+        {% endblock %}
