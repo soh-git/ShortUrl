@@ -6,6 +6,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use App\Repository\UrlRepository;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Security\Core\Security;
+use Symfony\Component\Validator\Constraints\Length;
 
 class UrlService  
 {
@@ -17,6 +18,8 @@ class UrlService
         $this->em = $em;
         $this->security = $security;
         $this->urlRepo = $urlRepo;
+       
+
     }
 
     public function addUrl( string $longUrl , string $domain) : Url
